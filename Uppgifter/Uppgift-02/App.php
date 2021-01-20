@@ -37,10 +37,10 @@ class App
         foreach ($products as $product) {
             $list .= "
                 <li class='list-group-item'>
-                <img height=200 src='$product[image]' alt='$product[title]'>
-                <b> $product[title] </b><br> 
-                <b> €$product[price] </b><br> 
-                $product[description] <br> 
+                <img height=200 src='$product[image]' alt='$product[title]'> <br><br>
+                <b> $product[title] </b><br><br>
+                <b> Price: €$product[price] </b><br> 
+                <b> Product details: </b>$product[description] <br> <br>
                 </li>
                 ";
         }
