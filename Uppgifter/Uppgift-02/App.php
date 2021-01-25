@@ -1,5 +1,4 @@
 <?php
-
 class App
 {
     public static $endpoint = "https://fakestoreapi.com/products";
@@ -16,7 +15,6 @@ class App
             echo $e->getMessage();
         }
     }
-
     public static function getData()
     {
         $json = @file_get_contents(self::$endpoint);
@@ -30,7 +28,6 @@ class App
         }
         return json_decode($json, true);
     }
-
     public static function viewData($products)
     {
         $list = "<ul class='list-group'>";
