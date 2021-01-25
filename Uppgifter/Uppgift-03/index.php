@@ -10,15 +10,14 @@ include('product.php');
 include('productArray.php');
 include('App.php');
 
+$products = array ();
+for ($i=0; $i <5 ; $i++) {
+$product = new product(
+    $name[$i], $description[$i], $price[$i], "");
 
-$products = array(); {
-    $product = array(
-        "product"     => $product,
-        "description" => $description,
-        "price"       => $price
-    );
-    array_push($products, $product);
+    array_push($products, $product -> toArray());
 }
+   
 
 // 4. Konvertera PHP-arrayen till en JSON-string.
 echo json_encode($products, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT);

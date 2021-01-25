@@ -3,7 +3,7 @@
 /**
  * 4 Arrayer 
  * ---------
- * $product 
+ * $name
  * innehåller 10 produkt namn
  * 
  * $description
@@ -17,7 +17,7 @@
  */
 
 
-$product = array(
+$name = array(
     0 => 'Plus Abstract Figure Print Tee',
     1 => 'Plus Letter Graphic Drop Shoulder Tee',
     2 => 'MOTF PREMIUM VOLUMINOUS CHUNKY-KNIT SWEATER',
@@ -121,3 +121,12 @@ $price = array(
     
 );
 
+$bild = array(
+    0 => 'https://www.pexels.com/photo/woman-wearing-black-hoodie-2787351/',
+    1 => 'https://www.pexels.com/photo/woman-in-black-long-sleeved-shirt-wearing-black-hat-4450356/',
+    2 => 'https://www.pexels.com/photo/woman-in-blue-dress-leaning-on-wooden-fence-4387524/',
+    3 => 'https://www.pexels.com/photo/person-in-blue-denim-jeans-and-white-converse-all-stars-52574/',
+    4 => 'https://www.pexels.com/photo/selective-focus-photography-woman-wearing-gray-coat-standing-near-building-1381553/',
+
+
+);
