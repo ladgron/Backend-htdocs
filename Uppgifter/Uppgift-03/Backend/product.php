@@ -12,6 +12,7 @@ class product
     private $description;
     private $price;
     private $image;
+    private $quantity;
 
     /**
      * Konstruktor
@@ -22,6 +23,7 @@ class product
         $this->description = $description;
         $this->price = $price;
         $this->image = $image;
+        $this->quantity = rand(0,50);
     }
 
     /**
@@ -34,9 +36,10 @@ class product
             "description"  => $this->description,
             "price"        => $this->price,
             "image"        => $this->image,
+            "quantity"     => $this->quantity
         );
 
-        // print_r($array);
+        //print_r($array);
 
         return $array;
     }

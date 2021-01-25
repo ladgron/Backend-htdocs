@@ -20,7 +20,7 @@
 $name = array(
     0 => 'Plus Abstract Figure Print Tee',
     1 => 'Plus Letter Graphic Drop Shoulder Tee',
-    2 => 'MOTF PREMIUM VOLUMINOUS CHUNKY-KNIT SWEATER',
+    2 => 'MOTF Premium Voluminous Chunky-Knit Sweater',
     3 => 'Half Button Pleated Belted Shirt Dress',
     4 => 'Flap Detail Single Breasted Teddy Jacket',
     5 => 'Ribbed Mock Neck Form-Fitting Sweater',
@@ -69,15 +69,17 @@ $price = array(
 );
 
 $image = array(
-    0 => 'https://www.pexels.com/photo/woman-wearing-black-hoodie-2787351/',
-    1 => 'https://www.pexels.com/photo/woman-in-black-long-sleeved-shirt-wearing-black-hat-4450356/',
-    2 => 'https://www.pexels.com/photo/woman-in-blue-dress-leaning-on-wooden-fence-4387524/',
-    3 => 'https://www.pexels.com/photo/person-in-blue-denim-jeans-and-white-converse-all-stars-52574/',
-    4 => 'https://www.pexels.com/photo/selective-focus-photography-woman-wearing-gray-coat-standing-near-building-1381553/',
-    5 => 'https://www.pexels.com/sv-se/foto/mode-skor-oskarpa-logotyp-1478442/',
-    6 => 'https://www.pexels.com/photo/woman-in-red-and-black-coat-and-black-hat-3584505/',
-    7 => 'https://www.pexels.com/photo/women-s-yellow-long-sleeved-dress-1055691/',
-    8 => 'https://www.pexels.com/photo/happy-young-sportswoman-doing-exercise-with-dumbbell-4498292/',
-    9 => 'https://www.pexels.com/sv-se/foto/landskap-mode-person-hander-3522692/',
+    0 => 'https://images.unsplash.com/photo-1522706604291-210a56c3b376',
+    1 => 'https://images.unsplash.com/photo-1520926559917-836c81ebfa3d',
+    2 => 'https://images.unsplash.com/photo-1560362351-a93acdb78189',
+    3 => 'https://images.unsplash.com/photo-1585487000160-6ebcfceb0d03',
+    4 => 'https://images.unsplash.com/photo-1573248447125-09a9bc0daa0c',
+    5 => 'https://images.unsplash.com/photo-1589697547048-962940abc062',
+    6 => 'https://images.unsplash.com/photo-1561538515-a63dfbf97ef1',
+    7 => 'https://cdn.pixabay.com/photo/2018/11/22/12/48/clothing-3831826_1280.jpg',
+    8 => 'https://images.unsplash.com/photo-1528588301474-23126537236b',
+    9 => 'https://images.unsplash.com/photo-1584370848010-d7fe6bc767ec',
 
 );
+
+
