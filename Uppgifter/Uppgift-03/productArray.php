@@ -23,7 +23,12 @@ $name = array(
     2 => 'MOTF PREMIUM VOLUMINOUS CHUNKY-KNIT SWEATER',
     3 => 'Half Button Pleated Belted Shirt Dress',
     4 => 'Flap Detail Single Breasted Teddy Jacket',
-    
+    5 => 'Ribbed Mock Neck Form-Fitting Sweater',
+    6 => 'Color Block Rib-knit Cami Top',
+    7 => 'Button Front Raglan Sleeve Cardigan',
+    8 => 'Crisscross Tie Back Crop Top',
+    9 => 'High Waist Skinny Jeans',
+      
 );
 
 $description = array(
@@ -109,7 +114,83 @@ $description = array(
     Fit Type:	Regular Fit
     Placket:	Single Breasted
     Body:	Yes',
-    
+    5 =>
+    'Type:	Basic Tops
+    Style:	Basics
+    Color:	Dusty Pink
+    Pattern Type:	Plain
+    Neckline:	Stand Collar
+    Length:	Regular
+    Details:	Rib-Knit
+    Sleeve Length:	Long Sleeve
+    Sleeve Type:	Regular Sleeve
+    Season:	Spring
+    Composition:	60% Spandex, 40% Polyester
+    Material:	Lycra
+    Fabric:	High Stretch
+    Sheer:	No
+    Fit Type:	Slim Fit
+    Placket Type:	Pullovers',
+    6 =>
+    'Style:	Casual
+    Color:	Multicolor
+    Pattern Type:	Colorblock
+    Neckline:	Spaghetti Strap
+    Length:	Regular
+    Details:	Rib-Knit
+    Sleeve Length:	Sleeveless
+    Season:	Spring
+    Composition:	100% Acrylic
+    Material:	Acrylic
+    Fabric:	Slight Stretch
+    Sheer:	No
+    Fit Type:	Regular Fit
+    Placket Type:	Pullovers',
+    7 =>
+    'Style:	Casual
+    Color:	Beige
+    Pattern Type:	Plain
+    Neckline:	Deep V Neck
+    Length:	Regular
+    Details:	Button Front
+    Type:	Coat
+    Sleeve Length:	Long Sleeve
+    Sleeve Type:	Raglan Sleeve
+    Season:	Fall/Winter
+    Sheer:	No
+    Material:	Acrylic
+    Composition:	100% Acrylic
+    Fabric:	Non-Stretch
+    Fit Type:	Regular Fit',
+    8 =>
+    'Style:	Casual
+    Color:	White
+    Pattern Type:	Plain
+    Neckline:	V neck
+    Length:	Crop
+    Details:	Criss Cross, Tie Back
+    Sleeve Length:	Cap Sleeve
+    Sleeve Type:	Regular Sleeve
+    Season:	Summer
+    Placket Type:	Pullovers
+    Sheer:	No
+    Belt:	Yes
+    Material:	Cotton
+    Composition:	5% Spandex, 95% Cotton
+    Fabric:	Slight Stretch
+    Fit Type:	Slim Fit',
+    9 =>
+    'Color:	Black
+    Pattern Type:	Plain
+    Length:	Cropped
+    Type:	Skinny
+    Composition:	2% Spandex, 85% Cotton, 13% Polyester
+    Material:	Denim
+    Fabric:	High Stretch
+    Sheer:	No
+    Fit Type:	Skinny
+    Closure Type:	Zipper Fly
+    Waist Line:	High Waist',
 );
 
 $price = array(
@@ -118,6 +199,11 @@ $price = array(
     2 => '379',
     3 => '180',
     4 => '360',
+    5 => '139',
+    6 => '41',
+    7 => '84',
+    8 => '69',
+    9 => '189',
     
 );
 
@@ -127,6 +213,10 @@ $bild = array(
     2 => 'https://www.pexels.com/photo/woman-in-blue-dress-leaning-on-wooden-fence-4387524/',
     3 => 'https://www.pexels.com/photo/person-in-blue-denim-jeans-and-white-converse-all-stars-52574/',
     4 => 'https://www.pexels.com/photo/selective-focus-photography-woman-wearing-gray-coat-standing-near-building-1381553/',
-
+    5 => 'https://www.pexels.com/sv-se/foto/mode-skor-oskarpa-logotyp-1478442/',
+    6 => 'https://www.pexels.com/photo/woman-in-red-and-black-coat-and-black-hat-3584505/',
+    7 => 'https://www.pexels.com/photo/women-s-yellow-long-sleeved-dress-1055691/',
+    8 => 'https://www.pexels.com/photo/happy-young-sportswoman-doing-exercise-with-dumbbell-4498292/',
+    9 => 'https://www.pexels.com/sv-se/foto/landskap-mode-person-hander-3522692/',
 
 );
