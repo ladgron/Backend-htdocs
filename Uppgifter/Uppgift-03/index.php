@@ -14,7 +14,7 @@ include('productArray.php');
 $products = array ();
 for ($i=0; $i <10 ; $i++) {
 $product = new product(
-    $name[$i], $description[$i], $price[$i], ""
+    $name[$i], $description[$i], $price[$i], $image[$i]
 );
 
     array_push($products, $product -> toArray());
