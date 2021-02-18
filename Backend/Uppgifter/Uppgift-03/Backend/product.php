@@ -23,7 +23,7 @@ class product
         $this->description = $description;
         $this->price = $price;
         $this->image = $image;
-        $this->quantity = rand(0,50);
+        $this->quantity = rand(0, 50);
     }
 
     /**
@@ -38,8 +38,6 @@ class product
             "image"        => $this->image,
             "quantity"     => $this->quantity
         );
-
-        //print_r($array);
 
         return $array;
     }

@@ -81,5 +81,3 @@ $image = array(
     9 => 'https://images.unsplash.com/photo-1584370848010-d7fe6bc767ec',
 
 );
-
-
