@@ -15,12 +15,15 @@ class Controller
     {
         $this->getHeader();
 
-        if (!isset($_GET['id'])) {
-            $this->getAllProducts();
-        } else {
+        if (isset($_GET['id'])) {
             $this->getOrderForm();
+        } else if (isset($_GET['showAllProducts'])) {
+            $this->getAllProducts();
+        } else if (isset($_GET['customer'])) {
+            $this->getConfirmForm();
+        } else {
+            $this->view->viewFirstPage();
         }
-
         $this->getFooter();
     }
 
@@ -41,8 +44,18 @@ class Controller
     }
 
 
+    public function getConfirmForm()
+    {
+        $customer = $this->sanitize($_GET['customer']);
+        $lastInsertId = $this->sanitize($_GET['lastInsertId']);
 
-    
+        if ($customer && $lastInsertId) {
+            $this->view->viewConfirmMessage($customer, $lastInsertId);
+        } else {
+            header("Location:index.php");
+        }
+    }
+
 
     public function getOrderForm()
     {
@@ -63,16 +76,20 @@ class Controller
 
     public function processOrderForm()
     {
-        $product_id     = $this->sanitize($_POST['product_id']);
-        $customer_id = $this->sanitize($_POST['customer_id']);
-        $confirm = $this->model->saveOrder($customer_id, $product_id);
+        $customer_id      = $this->sanitize($_POST['customer_id']);
+        $customer_name    = $this->sanitize($_POST['customer_name']);
+        $customer_tel     = $this->sanitize($_POST['customer_tel']);
+        $customer_email   = $this->sanitize($_POST['customer_email']);
+        $customer_address = $this->sanitize($_POST['customer_address']);
+        $product_id       = $this->sanitize($_POST['product_id']);
+        $confirm     = $this->model->saveOrder($customer_id, $customer_name, $customer_tel, $customer_email, $customer_address, $product_id);
 
         if ($confirm) {
-            $customer = $confirm['customer'];
+            $customer     = $confirm['customer'];
             $lastInsertId = $confirm['lastInsertId'];
-            $this->view->viewConfirmMessage($customer, $lastInsertId);
+            header("Location:index.php?customer=1&lastInsertId=2");
         } else {
-            $this->view->viewErrorMessage($customer_id);
+            $this->view->viewErrorMessage($customer_name);
         }
     }
 

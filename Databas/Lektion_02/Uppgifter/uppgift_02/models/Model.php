@@ -32,7 +32,7 @@ class Model
     }
 
    
-
+/*
     public function fetchCustomerById($id)
     {
         $statement = "SELECT * FROM customers WHERE customer_id=:id";
@@ -46,17 +46,22 @@ class Model
         return false;
     }
 
+*/ 
 
-    public function saveOrder($customer_id, $product_id)
+    public function saveOrder($customer_name, $customer_tel, $customer_email, $customer_address, $product_id)
     {
-        $customer = $this->fetchCustomerById($customer_id);
+        //$customer = $this->fetchCustomerById($customer_id);
 
         if ($customer) {
 
-            $statement = "INSERT INTO orders (customer_id, product_id)  
-                          VALUES (:customer_id, :product_id)";
+            $statement = "INSERT INTO orders (customer_id, customer_name, customer_tel, customer_email, customer_address, :product_id)  
+                          VALUES (:customer_id, :customer_name, :customer_tel, :customer_email, :customer_address, :product_id)";
             $parameters = array(
                 ':customer_id' => $customer_id,
+                ':customer_name' => $customer_name,
+                ':customer_tel' => $customer_tel,
+                ':customer_email' => $customer_email,
+                ':customer_address' => $customer_address,
                 ':product_id' => $product_id
             );
 
@@ -67,4 +72,5 @@ class Model
             return false;
         }
     }
+   
 }
