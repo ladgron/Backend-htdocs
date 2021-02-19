@@ -3,9 +3,9 @@
 class View
 {
 
-    public function viewHeader($title)
-    {
-        $html = <<<HTML
+  public function viewHeader($title)
+  {
+    $html = <<<HTML
             <!doctype html>
             <html lang="sv">
             <head>
@@ -41,11 +41,11 @@ class View
                   
                   
                   <li class="nav-item">
-                    <a class="nav-link" href="views/modern/contact.php">Contact</a>
+                    <a class="nav-link" href="?showContactForm">Contact</a>
                   </li>
                   <li>
         
-                    <a class="nav-link" href="?showAllProducts=1"> Products</a>
+                    <a class="nav-link" href="?showAllProducts">Products</a>
                   </li>
                       
                     </div>
@@ -59,14 +59,13 @@ class View
 
         HTML;
 
-        echo $html;
-          
-    }
+    echo $html;
+  }
 
-    public function viewFirstPage()
+  public function viewFirstPage()
   {
 
-        $html = <<<HTML
+    $html = <<<HTML
           <header>
             <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
               <ol class="carousel-indicators">
@@ -113,14 +112,16 @@ class View
         
         HTML;
 
-        echo $html;
-    }
+    echo $html;
+  }
 
-    public function viewFooter()
-    {
-        $date = date('Y');
 
-        $html = <<<HTML
+
+  public function viewFooter()
+  {
+    $date = date('Y');
+
+    $html = <<<HTML
             </div> <!-- row -->
             <footer class="text-center text-muted">
             <hr>
@@ -130,12 +131,12 @@ class View
             </html>
         HTML;
 
-        echo $html;
-    }
+    echo $html;
+  }
 
-    public function viewOneProduct($product)
-    {
-        $html = <<<HTML
+  public function viewOneProduct($product)
+  {
+    $html = <<<HTML
             <div class="col-md-6">
                     <div class="card m-1">
                         <img class="card-img-top" src="$product[product_image]"
@@ -157,30 +158,115 @@ class View
                 </form>-->
         HTML;
 
-        echo $html;
-    }
+    echo $html;
+  }
 
 
-    public function viewAllProducts($product)
-    {
-        foreach ($product as $key => $product) {
-            $this->viewOneProduct($product);
-            $html = <<<HTML
+  public function viewAllProducts($product)
+  {
+    foreach ($product as $key => $product) {
+      $this->viewOneProduct($product);
+      $html = <<<HTML
         <a href="?id=$product[product_id]">Buy this product</a>
         HTML;
 
-        echo $html;
-        }
+      echo $html;
     }
+  }
+
+  public function viewContactForm()
+  {
+    $html = <<<HTML
+      <body>
 
 
+  <!-- Page Content -->
+  <div class="container">
+
+    <!-- Page Heading/Breadcrumbs -->
+    <h1 class="mt-4 mb-3">Contact</h1>
 
 
+    <!-- Content Row -->
+    <div class="row">
+      <!-- Photo Column -->
+      <div class="col-lg-8 mb-4"> <img src="views/modern/images/LG_Photo_01.jpg" width="200" height="250" ;alt="logo bild">
+       <img src="views/modern/images/rida.jpg" width="200" height="80" ;alt="logo bild"></div>
+      <!-- Contact Details Column -->
+      <div class="col-lg-4 mb-4">
+        <h3>Contact Details</h3>
+        <p>
+          Tomtebodavägen 3A
+          <br>171 65 Solna
+          <br>
+        </p>
+        <p>
+          <abbr title="Phone">P</abbr>: 070 4567890
+        </p>
+        <p>
+          <abbr title="Email">E</abbr>:
+          <a href="mailto:name@example.com">ladan.rida@nackademin.com
+          </a>
+        </p>
+        <p>
+          <abbr title="Hours">H</abbr>: Monday - Friday: 9:00 AM to 5:00 PM
+        </p>
+      </div>
+    </div>
+    <!-- /.row -->
 
-    public function viewOrderForm($product)
-    {
+    <!-- Contact Form -->
+    <!-- In order to set the email address and subject line for the contact form go to the bin/contact_me.php file. -->
+    <div class="row">
+      <div class="col-lg-8 mb-4">
+        <h3>Send us a Message</h3>
+        <form name="sentMessage" id="contactForm" novalidate>
+          <div class="control-group form-group">
+            <div class="controls">
+              <label>Full Name:</label>
+              <input type="text" class="form-control" id="name" required data-validation-required-message="Please enter your name.">
+              <p class="help-block"></p>
+            </div>
+          </div>
+          <div class="control-group form-group">
+            <div class="controls">
+              <label>Phone Number:</label>
+              <input type="tel" class="form-control" id="phone" required data-validation-required-message="Please enter your phone number.">
+            </div>
+          </div>
+          <div class="control-group form-group">
+            <div class="controls">
+              <label>Email Address:</label>
+              <input type="email" class="form-control" id="email" required data-validation-required-message="Please enter your email address.">
+            </div>
+          </div>
+          <div class="control-group form-group">
+            <div class="controls">
+              <label>Message:</label>
+              <textarea rows="10" cols="100" class="form-control" id="message" required data-validation-required-message="Please enter your message" maxlength="999" style="resize:none"></textarea>
+            </div>
+          </div>
+          <div id="success"></div>
+          <!-- For success/fail messages -->
+          <button type="submit" class="btn btn-primary" id="sendMessageButton">Send Message</button>
+        </form>
+      </div>
 
-        $html = <<<HTML
+    </div>
+    <!-- /.row -->
+
+  </div>
+  <!-- /.container -->
+HTML;
+
+    echo $html;
+  }
+
+
+  public function viewOrderForm($product)
+  {
+
+    $html = <<<HTML
             <div class="col-md-6">
                 <br><h3 class='text-center text-primary'>Order form</h3> <br>
                 <h6>Complete the following form to finish your shopping: </h6>
@@ -208,39 +294,48 @@ class View
 
         HTML;
 
-        echo $html;
-    }
+    echo $html;
+  }
 
-    public function viewConfirmMessage($customer, $lastInsertId)
-    {
-        $this->printMessage(
-            "<h4>Thanks $customer[customer_name] !</h4>
+  public function viewConfirmMessage($customer, $lastInsertId)
+  {
+    $this->printMessage(
+      "<h4>Thanks $customer[customer_name] !</h4>
             <p>You will receive your order at your given address:</p>
             <p>$customer[customer_address]</p>
             <p>Your order number is $lastInsertId </p>
             ",
-            "success"
-        );
-    }
+      "success"
+    );
+  }
 
-    public function viewErrorMessage($customer_id)
-    {
-        $this->printMessage(
-            "<h4>Customer number $customer_id does not exist in our customer records!</h4>
+  public function viewSimpleConfirmMessage()
+  {
+    $this->printMessage(
+      "<h4>Thank you for your order, it is on its way!</h4>",
+      "success"
+    );
+  }
+
+
+  public function viewErrorMessage($customer_id)
+  {
+    $this->printMessage(
+      "<h4>Customer number $customer_id does not exist in our customer records!</h4>
                 <h5>Contact customer service</h5>
                 ",
-            "warning"
-        );
-    }
+      "warning"
+    );
+  }
 
-    /**
-     * En funktion som skriver ut ett felmeddelande
-     * $messageType enligt Bootstrap Alerts
-     * https://getbootstrap.com/docs/5.0/components/alerts/
-     */
-    public function printMessage($message, $messageType = "danger")
-    {
-        $html = <<< HTML
+  /**
+   * En funktion som skriver ut ett felmeddelande
+   * $messageType enligt Bootstrap Alerts
+   * https://getbootstrap.com/docs/5.0/components/alerts/
+   */
+  public function printMessage($message, $messageType = "danger")
+  {
+    $html = <<< HTML
             <div class="my-2 alert alert-$messageType">
                 $message
             </div>
@@ -248,6 +343,6 @@ class View
 
         HTML;
 
-        echo $html;
-    }
+    echo $html;
+  }
 }

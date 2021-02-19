@@ -19,11 +19,13 @@ class Controller
             $this->getOrderForm();
         } else if (isset($_GET['showAllProducts'])) {
             $this->getAllProducts();
-        } else if (isset($_GET['customer'])) {
+        } else if (isset($_GET['showConfirmationPage'])) {
             $this->getConfirmForm();
-        } else {
-            $this->view->viewFirstPage();
-        }
+        } else if (isset($_GET['showContactForm'])) {
+            $this->getContactForm();
+        }  else (
+            $this->view->viewContactPage());
+    
         $this->getFooter();
     }
 
@@ -46,16 +48,22 @@ class Controller
 
     public function getConfirmForm()
     {
-        $customer = $this->sanitize($_GET['customer']);
-        $lastInsertId = $this->sanitize($_GET['lastInsertId']);
+        // $customer = $this->sanitize($_GET['customer']);
+        // $lastInsertId = $this->sanitize($_GET['lastInsertId']);
 
-        if ($customer && $lastInsertId) {
-            $this->view->viewConfirmMessage($customer, $lastInsertId);
-        } else {
-            header("Location:index.php");
-        }
+        // if ($customer && $lastInsertId) {
+        //     $this->view->viewConfirmMessage($customer, $lastInsertId);
+        // } else {
+        //     header("Location:index.php");
+        // }
+        $this->view->viewSimpleConfirmMessage();
+
     }
 
+    public function getContactForm()
+    {  $this->view->viewContactForm();
+
+    }
 
     public function getOrderForm()
     {
@@ -76,18 +84,17 @@ class Controller
 
     public function processOrderForm()
     {
-        $customer_id      = $this->sanitize($_POST['customer_id']);
         $customer_name    = $this->sanitize($_POST['customer_name']);
         $customer_tel     = $this->sanitize($_POST['customer_tel']);
         $customer_email   = $this->sanitize($_POST['customer_email']);
         $customer_address = $this->sanitize($_POST['customer_address']);
         $product_id       = $this->sanitize($_POST['product_id']);
-        $confirm     = $this->model->saveOrder($customer_id, $customer_name, $customer_tel, $customer_email, $customer_address, $product_id);
+        $confirm     = $this->model->saveOrder($customer_name, $customer_tel, $customer_email, $customer_address, $product_id);
 
         if ($confirm) {
-            $customer     = $confirm['customer'];
-            $lastInsertId = $confirm['lastInsertId'];
-            header("Location:index.php?customer=1&lastInsertId=2");
+            // $customer     = $confirm['customer'];
+            // $lastInsertId = $confirm['lastInsertId'];
+            header("Location:index.php?showConfirmationPage");
         } else {
             $this->view->viewErrorMessage($customer_name);
         }
