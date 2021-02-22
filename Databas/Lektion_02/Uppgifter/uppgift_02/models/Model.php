@@ -31,23 +31,6 @@ class Model
         return false;
     }
 
-
-    /*
-    public function fetchCustomerById($id)
-    {
-        $statement = "SELECT * FROM customers WHERE customer_id=:id";
-        $parameters = array(':id' => $id);
-        $customer = $this->db->select($statement, $parameters);
-
-        if ($customer) {
-            return $customer[0];
-        }
-
-        return false;
-    }
-
-*/
-
     public function saveOrder($customer_name, $customer_tel, $customer_email, $customer_address, $product_id)
     {
         //$customer = $this->fetchCustomerById($customer_id);
@@ -63,7 +46,6 @@ class Model
 
         $customer_id = $this->db->insert($statement, $parameters);
 
-
         if ($customer_id) {
 
             $statement = "INSERT INTO orders (customer_id, product_id)  
@@ -77,10 +59,30 @@ class Model
             if (!$orderId) {
                 return false;
             }
-            //return array('customer' => $customer, 'lastInsertId' => $lastInsertId);
             return true;
         } else {
             return false;
         }
     }
+
+    public function saveMessage($contactperson_name, $contactperson_tel, $contactperson_email, $contactperson_message)
+    {
+        //Skapa en ny message i messages-tabellen
+        $statement = "INSERT INTO messages (contactperson_name, contactperson_tel, contactperson_email, contactperson_message)  
+        VALUES (:contactperson_name, :contactperson_tel, :contactperson_email, :contactperson_message)";
+        $parameters = array(
+            ':contactperson_name' => $contactperson_name,
+            ':contactperson_tel' => $contactperson_tel,
+            ':contactperson_email' => $contactperson_email,
+            ':contactperson_message' => $contactperson_message
+        );
+
+        $orderId = $this->db->insert($statement, $parameters);
+        if (!$orderId) {
+            return false;
+        }
+        return true;
+    
+    }
+    
 }

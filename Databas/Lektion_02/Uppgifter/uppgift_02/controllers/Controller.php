@@ -23,9 +23,10 @@ class Controller
             $this->getConfirmForm();
         } else if (isset($_GET['showContactForm'])) {
             $this->getContactForm();
-        }  else (
-            $this->view->viewContactPage());
-    
+        } else if (isset($_GET['showMessageConfirmPage'])) {
+            $this->getMessageConfirm();
+        } else ($this->view->viewFirstPage());
+
         $this->getFooter();
     }
 
@@ -48,21 +49,21 @@ class Controller
 
     public function getConfirmForm()
     {
-        // $customer = $this->sanitize($_GET['customer']);
-        // $lastInsertId = $this->sanitize($_GET['lastInsertId']);
-
-        // if ($customer && $lastInsertId) {
-        //     $this->view->viewConfirmMessage($customer, $lastInsertId);
-        // } else {
-        //     header("Location:index.php");
-        // }
         $this->view->viewSimpleConfirmMessage();
-
     }
 
     public function getContactForm()
-    {  $this->view->viewContactForm();
+    {
+        $this->view->viewContactForm();
+        
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            $this->processContactForm();
+    }
+}
 
+    public function getMessageConfirm()
+    {
+        $this->view->viewConfirmMessageText();
     }
 
     public function getOrderForm()
@@ -92,14 +93,26 @@ class Controller
         $confirm     = $this->model->saveOrder($customer_name, $customer_tel, $customer_email, $customer_address, $product_id);
 
         if ($confirm) {
-            // $customer     = $confirm['customer'];
-            // $lastInsertId = $confirm['lastInsertId'];
             header("Location:index.php?showConfirmationPage");
         } else {
             $this->view->viewErrorMessage($customer_name);
         }
     }
 
+    public function processContactForm()
+    {
+        $contactperson_name    = $this->sanitize($_POST['contactperson_name']);
+        $contactperson_tel     = $this->sanitize($_POST['contactperson_tel']);
+        $contactperson_email   = $this->sanitize($_POST['contactperson_email']);
+        $contactperson_message = $this->sanitize($_POST['contactperson_message']);
+        $confirm     = $this->model->saveMessage($contactperson_name, $contactperson_tel, $contactperson_email, $contactperson_message);
+
+        if ($confirm) {
+            header("Location:index.php?showMessageConfirmPage");
+        } else {
+            $this->view->viewErrorMessage($contactperson_name);
+        }
+    }
 
     /**
      * Sanitize Inputs

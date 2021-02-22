@@ -78,22 +78,22 @@ class View
                 <div class="carousel-item active" style="background-image: url('views/modern/images/pexels-photo-3965551.jpeg' )">
                 
                   <div class="carousel-caption d-none d-md-block">
-                    <h3>First Slide</h3>
-                    <p>This is a description for the first slide.</p>
+                    <h4>"Fashion is the armor to survive the reality of everyday life."</h4>
+                  <p>Bill Cunningham</p>
                   </div>
                 </div>
                 <!-- Slide Two - Set the background image for this slide in the line below -->
                 <div class="carousel-item" style="background-image: url('views/modern/images/pexels-photo-336372.jpeg')">
-                  <div class="carousel-caption d-none d-md-block">
-                    <h3>Second Slide</h3>
-                    <p>This is a description for the second slide.</p>
+                  <div class="carousel-caption d-md-block">
+                    <h3>"Fashions fade, style is eternal."</h3>
+                    <p>Yves Saint Laurent</p>
                   </div>
                 </div>
                 <!-- Slide Three - Set the background image for this slide in the line below -->
                 <div class="carousel-item" style="background-image: url('views/modern/images/shopping-mall-1316787_1280.webp')">
                   <div class="carousel-caption d-none d-md-block">
-                    <h3>Third Slide</h3>
-                    <p>This is a description for the third slide.</p>
+                    <h3>"In difficult times, fashion is always outrageous."</h3>
+                    <p>Elsa Schiaparelli</p>
                   </div>
                 </div>
               </div>
@@ -137,37 +137,32 @@ class View
   public function viewOneProduct($product)
   {
     $html = <<<HTML
-            <div class="col-md-6">
-                    <div class="card m-1">
-                        <img class="card-img-top" src="$product[product_image]"
+            <div class="row">
+              <div class="col-md-5">
+                    <img height="250" width= "200" style= "margin-left: 50px; margin-top: 30px" src="$product[product_image]"
                              alt="$product[product_name]">
-                        <div class="card-body">
-                            <div class="card-title text-center">
-                                <h4>$product[product_name]</h4>
-                                <h5>Price: $product[product_price] kr</h5>
-                                <p><b>Product description:</b> $product[product_description]</p>
-                            </div>
+              </div>
+                        <div class="col-md-4 py-5">
+                             <h4 style= "margin-bottom: 30px">$product[product_name]</h4>
+                             <p><b>Price: $product[product_price] kr</b></p>
+                              <p><b>Product description:</b> $product[product_description]</p>
                         </div>
-                    </div>
-                    
-            </div>  <!-- col -->
-            <!--
-            <form>
-            <input type="submit" class="form-control my-2 btn btn-lg btn-outline-success" 
-                            value="Buy this item!">
-                </form>-->
+            </div>
         HTML;
-
     echo $html;
   }
-
 
   public function viewAllProducts($product)
   {
     foreach ($product as $key => $product) {
       $this->viewOneProduct($product);
       $html = <<<HTML
-        <a href="?id=$product[product_id]">Buy this product</a>
+        <div class="col-md-7">
+        <h5 style= "margin-bottom: 30px; margin-left: 60px; text-align:right">
+        <a href="?id=$product[product_id]">Buy this product</a></h5>
+        </div>
+        <hr>       
+        
         HTML;
 
       echo $html;
@@ -186,12 +181,11 @@ class View
     <!-- Page Heading/Breadcrumbs -->
     <h1 class="mt-4 mb-3">Contact</h1>
 
-
     <!-- Content Row -->
     <div class="row">
       <!-- Photo Column -->
       <div class="col-lg-8 mb-4"> <img src="views/modern/images/LG_Photo_01.jpg" width="200" height="250" ;alt="logo bild">
-       <img src="views/modern/images/rida.jpg" width="200" height="80" ;alt="logo bild"></div>
+       <img src="views/modern/images/rida_photo_01.jpg" width="200" height="250" ;alt="logo bild"></div>
       <!-- Contact Details Column -->
       <div class="col-lg-4 mb-4">
         <h3>Contact Details</h3>
@@ -220,36 +214,39 @@ class View
     <div class="row">
       <div class="col-lg-8 mb-4">
         <h3>Send us a Message</h3>
-        <form name="sentMessage" id="contactForm" novalidate>
+        <form action="#" method="post">
           <div class="control-group form-group">
             <div class="controls">
               <label>Full Name:</label>
-              <input type="text" class="form-control" id="name" required data-validation-required-message="Please enter your name.">
+              <input type="text" class="form-control" name="contactperson_name" required data-validation-required-message="Please enter your name.">
               <p class="help-block"></p>
             </div>
           </div>
           <div class="control-group form-group">
             <div class="controls">
               <label>Phone Number:</label>
-              <input type="tel" class="form-control" id="phone" required data-validation-required-message="Please enter your phone number.">
+              <input type="text" class="form-control" name="contactperson_tel" required data-validation-required-message="Please enter your phone number.">
             </div>
           </div>
           <div class="control-group form-group">
             <div class="controls">
               <label>Email Address:</label>
-              <input type="email" class="form-control" id="email" required data-validation-required-message="Please enter your email address.">
+              <input type="text" class="form-control" name="contactperson_email" required data-validation-required-message="Please enter your email address.">
             </div>
           </div>
           <div class="control-group form-group">
             <div class="controls">
               <label>Message:</label>
-              <textarea rows="10" cols="100" class="form-control" id="message" required data-validation-required-message="Please enter your message" maxlength="999" style="resize:none"></textarea>
+              <textarea rows="10" cols="100" class="form-control" name="contactperson_message" required data-validation-required-message="Please enter your message" maxlength="999" style="resize:none"></textarea>
             </div>
           </div>
-          <div id="success"></div>
+         <!-- <div id="success"></div> -->
           <!-- For success/fail messages -->
-          <button type="submit" class="btn btn-primary" id="sendMessageButton">Send Message</button>
+         <!-- <button type="submit" class="btn btn-primary" id="sendMessageButton">Send Message</button> -->
+         <input type="submit" class="form-control my-2 btn btn-lg btn-outline-success" 
+                            value="Submit">
         </form>
+       
       </div>
 
     </div>
@@ -297,18 +294,6 @@ HTML;
     echo $html;
   }
 
-  public function viewConfirmMessage($customer, $lastInsertId)
-  {
-    $this->printMessage(
-      "<h4>Thanks $customer[customer_name] !</h4>
-            <p>You will receive your order at your given address:</p>
-            <p>$customer[customer_address]</p>
-            <p>Your order number is $lastInsertId </p>
-            ",
-      "success"
-    );
-  }
-
   public function viewSimpleConfirmMessage()
   {
     $this->printMessage(
@@ -317,14 +302,11 @@ HTML;
     );
   }
 
-
-  public function viewErrorMessage($customer_id)
+  public function viewConfirmMessageText()
   {
     $this->printMessage(
-      "<h4>Customer number $customer_id does not exist in our customer records!</h4>
-                <h5>Contact customer service</h5>
-                ",
-      "warning"
+      "<h4>Thank you for your message! We will get back to you as soon as possible.</h4>",
+      "success"
     );
   }
 
