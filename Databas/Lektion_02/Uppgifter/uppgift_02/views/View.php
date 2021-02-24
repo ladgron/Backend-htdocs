@@ -292,7 +292,7 @@ HTML;
                             class="form-control form-control-md my-2 btn-sm" 
                             placeholder="Type your delivery address">
                     <input type="submit" class="form-control my-2 btn btn-sm btn-outline-success bold" 
-                            value=<b>"Place order"></b>
+                            value="Place order">
                 </form>
                 </div>
             <!-- col avslutas efter en alert -->
