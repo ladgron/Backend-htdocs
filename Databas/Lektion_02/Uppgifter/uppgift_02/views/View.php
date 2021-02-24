@@ -184,8 +184,11 @@ class View
     <!-- Content Row -->
     <div class="row">
       <!-- Photo Column -->
-      <div class="col-lg-8 mb-4"> <img src="views/modern/images/LG_Photo_01.jpg" width="200" height="250" ;alt="logo bild">
-       <img src="views/modern/images/rida_photo_01.jpg" width="200" height="250" ;alt="logo bild"></div>
+      <div class="col-lg-4 mb-2"><img src="views/modern/images/LG_Photo_01.jpg" width="120" height="150" ;alt="logo bild">
+      <h4>Ladan</h4></div>
+      <div class="col-lg-4 mb-2"><img src="views/modern/images/rida_photo_01.jpg" width="120" height="150" ;alt="logo bild">
+      <h4>Rida</h4></div>
+
       <!-- Contact Details Column -->
       <div class="col-lg-4 mb-4">
         <h3>Contact Details</h3>
@@ -205,8 +208,8 @@ class View
         <p>
           <abbr title="Hours">H</abbr>: Monday - Friday: 9:00 AM to 5:00 PM
         </p>
-      </div>
-    </div>
+        </div>
+    
     <!-- /.row -->
 
     <!-- Contact Form -->
