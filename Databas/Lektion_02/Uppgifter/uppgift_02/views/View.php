@@ -47,13 +47,9 @@ class View
                   <a class="nav-link" href="?showContactForm">Contact</a>
                   </li>
                   <li>
-                  
-                  </li>
-                  <a class="nav-link" href="Admin">Admin</a>
-                  </li>
-                      
+                 
                     </div>
-                  </li>
+                  
                  
                   </ul>
               </div>
@@ -141,13 +137,13 @@ class View
   {
     $html = <<<HTML
             <div class="row">
-              <div class="col-md-5">
+              <div class="col-md-3">
                     <img height="250" width= "200" style= "margin-left: 50px; margin-top: 30px" src="$product[product_image]"
                              alt="$product[product_name]">
               </div>
-                        <div class="col-md-4 py-5">
-                             <h4 style= "margin-bottom: 30px">$product[product_name]</h4>
-                             <p><b>Price: $product[product_price] kr</b></p>
+                        <div class="col-md-3 py-5">
+                              <h5><b>$product[product_name]</b></h5>
+                              <p><b>Price: $product[product_price] kr</b></p>
                               <p><b>Product description:</b> $product[product_description]</p>
                         </div>
             </div>
@@ -160,7 +156,7 @@ class View
     foreach ($product as $key => $product) {
       $this->viewOneProduct($product);
       $html = <<<HTML
-        <div class="col-md-7">
+        <div class="col-md-5">
         <h5 style= "margin-bottom: 30px; margin-left: 60px; text-align:right">
         <a href="?id=$product[product_id]">Buy this product</a></h5>
         </div>
@@ -183,17 +179,22 @@ class View
 
     <!-- Page Heading/Breadcrumbs -->
     <h1 class="mt-4 mb-3">Contact</h1>
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item">
+        <a href="Admin">Admin</a>
+        </li>
+  </ol>
 
     <!-- Content Row -->
     <div class="row">
       <!-- Photo Column -->
-      <div class="col-lg-4 mb-2"><img src="views/modern/images/LG_Photo_01.jpg" width="120" height="150" ;alt="logo bild">
+      <div class="col-lg-2"><img src="views/modern/images/LG_Photo_01.jpg" width="120" height="150" ;alt="logo bild">
       <h4>Ladan</h4></div>
-      <div class="col-lg-4 mb-2"><img src="views/modern/images/rida_photo_01.jpg" width="120" height="150" ;alt="logo bild">
+      <div class="col-lg-2"><img src="views/modern/images/rida_photo_01.jpg" width="120" height="150" ;alt="logo bild">
       <h4>Rida</h4></div>
 
       <!-- Contact Details Column -->
-      <div class="col-lg-4 mb-4">
+      <div class="mb-5">
         <h3>Contact Details</h3>
         <p>
           Tomtebodavägen 3A
@@ -212,44 +213,44 @@ class View
           <abbr title="Hours">H</abbr>: Monday - Friday: 9:00 AM to 5:00 PM
         </p>
         </div>
-    
+        </div>
     <!-- /.row -->
 
     <!-- Contact Form -->
     <!-- In order to set the email address and subject line for the contact form go to the bin/contact_me.php file. -->
     <div class="row">
-      <div class="col-lg-8 mb-4">
-        <h3>Send us a Message</h3>
+      <div class="col-lg-6 mb-4">
+        <h3>Contact us</h3>
         <form action="#" method="post">
           <div class="control-group form-group">
             <div class="controls">
               <label>Full Name:</label>
-              <input type="text" class="form-control" name="contactperson_name" required data-validation-required-message="Please enter your name.">
+              <input type="text" class="form-control btn-sm" name="contactperson_name" required data-validation-required-message="Please enter your name.">
               <p class="help-block"></p>
             </div>
           </div>
           <div class="control-group form-group">
             <div class="controls">
               <label>Phone Number:</label>
-              <input type="text" class="form-control" name="contactperson_tel" required data-validation-required-message="Please enter your phone number.">
+              <input type="text" class="form-control btn-sm" name="contactperson_tel" required data-validation-required-message="Please enter your phone number.">
             </div>
           </div>
           <div class="control-group form-group">
             <div class="controls">
               <label>Email Address:</label>
-              <input type="text" class="form-control" name="contactperson_email" required data-validation-required-message="Please enter your email address.">
+              <input type="text" class="form-control btn-sm" name="contactperson_email" required data-validation-required-message="Please enter your email address.">
             </div>
           </div>
           <div class="control-group form-group">
             <div class="controls">
               <label>Message:</label>
-              <textarea rows="10" cols="100" class="form-control" name="contactperson_message" required data-validation-required-message="Please enter your message" maxlength="999" style="resize:none"></textarea>
+              <textarea rows="5" cols="100" class="form-control btn-sm" name="contactperson_message" required data-validation-required-message="Please enter your message" maxlength="999" style="resize:none"></textarea>
             </div>
           </div>
          <!-- <div id="success"></div> -->
           <!-- For success/fail messages -->
          <!-- <button type="submit" class="btn btn-primary" id="sendMessageButton">Send Message</button> -->
-         <input type="submit" class="form-control my-2 btn btn-lg btn-outline-success" 
+         <input type="submit" class="form-control my-2 btn-sm btn-outline-success" 
                             value="Submit">
         </form>
        
@@ -270,29 +271,30 @@ HTML;
   {
 
     $html = <<<HTML
-            <div class="col-md-6">
-                <br><h3 class='text-center text-primary'>Order form</h3> <br>
+            <div class="container">
+                <div class="col-md-10 left">
+                <h5 class='text-success'><u>Order form</u></h5></div>
                 <h6>Complete the following form to finish your shopping: </h6>
                 <form action="#" method="post">
                     <input type="hidden" name="product_id" 
                             value="$product[product_id]">
                                            
                     <input type="text" name="customer_name" required 
-                            class="form-control form-control-lg my-2" 
+                            class="form-control form-control-md my-2 btn-sm" 
                             placeholder="Type your name">
                     <input type="text" name="customer_tel" required 
-                            class="form-control form-control-lg my-2" 
+                            class="form-control form-control-md my-2 btn-sm" 
                             placeholder="Type your phone number">
                     <input type="text" name="customer_email" required 
-                            class="form-control form-control-lg my-2" 
+                            class="form-control form-control-md my-2 btn-sm" 
                             placeholder="Type your email address">
                     <input type="text" name="customer_address" required 
-                            class="form-control form-control-lg my-2" 
+                            class="form-control form-control-md my-2 btn-sm" 
                             placeholder="Type your delivery address">
-                    <input type="submit" class="form-control my-2 btn btn-lg btn-outline-success" 
-                            value="Place order">
+                    <input type="submit" class="form-control my-2 btn btn-sm btn-outline-success bold" 
+                            value=<b>"Place order"></b>
                 </form>
-                
+                </div>
             <!-- col avslutas efter en alert -->
 
         HTML;
