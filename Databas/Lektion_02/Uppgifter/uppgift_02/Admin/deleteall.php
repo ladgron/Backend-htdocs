@@ -8,10 +8,10 @@ $stmt->execute();
 $result = $stmt->fetchAll();
 
 foreach ($result as $key => $value) {
-    $id = $value['id'];
-    $sql = "DELETE FROM messages WHERE id = :id";
+    $id = $value['message_id'];
+    $sql = "DELETE FROM messages WHERE message_id = :message_id";
     $stmt = $conn->prepare($sql);
-    $stmt->bindParam(':id', $id);
+    $stmt->bindParam(':message_id', $id);
     $stmt->execute();
     $rowCount = $stmt->rowCount();
 }

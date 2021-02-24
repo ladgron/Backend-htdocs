@@ -2,12 +2,13 @@
 
 require_once("database.php");
 
-$id = $_GET['id'];
+$id = $_GET['message_id'];
 
-$sql = "DELETE FROM messages WHERE id = :id";
+$sql = "DELETE FROM messages WHERE message_id = :message_id";
 $stmt = $conn->prepare($sql);
-$stmt->bindParam(':id', $id);
+$stmt->bindParam(':message_id', $id);
 $stmt->execute();
 $rowCount = $stmt->rowCount();
 
 header('Location: index.php');
+?>

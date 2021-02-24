@@ -31,20 +31,24 @@ $result = $stmt->fetchAll();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
-    <title>Meddelande listan</title>
+    <title>Message list</title>
 </head>
 
 <body class="container">
 
     <?php
     $table = "
-      <table class ='table table-hover'>
+      <table class ='table'>
+      <thead class = 'table-dark'>
+
           <tr>
             <th>Name</th>
             <th>Tel</th>
             <th>E-mail</th>
             <th>Message</th>            
           </tr>
+
+          </thead>  
      ";
 
 
@@ -56,11 +60,11 @@ $result = $stmt->fetchAll();
                 <td>$value[contactperson_name]</td>
                 <td>$value[contactperson_tel]</td>
                 <td>$value[contactperson_email]</td>
-                 <td>$value[contactperson_message]</td>
+                <td>$value[contactperson_message]</td>
 
                  <td>
-                     <a href='delete.php?id=$value[message_id]' 
-                     class='btn btn-sm btn-outline-danger'>Radera</a>
+                     <a href='delete.php?message_id=$value[message_id]' 
+                     class='btn btn-sm btn-outline-danger'>Delete</a>
                  </td>     
                 </tr>
               
@@ -71,13 +75,13 @@ $result = $stmt->fetchAll();
     ?>
 
     <a href='deleteall.php' class='btn btn-sm btn-outline-danger'>
-        Radera alla meddelanden
+        Delete all messages
     </a>
 
     <hr>
     <footer class="text-center">
         Copywrite &copy;
-        <?php echo "Admin" . " " . date('Y');
+        <?php echo date('Y') . " Admin" . ". MY Little Webshop ";
         ?>
     </footer>
 

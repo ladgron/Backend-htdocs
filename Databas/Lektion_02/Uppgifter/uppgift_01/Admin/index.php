@@ -38,12 +38,15 @@ $result = $stmt->fetchAll();
 
     <?php
     $table = "
-      <table class ='table table-hover'>
+      <table class ='table'>
+      <thead class = 'table-dark'>
+
           <tr>
              <th>Namn</th>
              <th>E-post</th>
              <th>Meddelande</th>            
           </tr>
+          </thead>  
      ";
 
 

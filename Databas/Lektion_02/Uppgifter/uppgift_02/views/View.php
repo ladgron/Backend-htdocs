@@ -40,19 +40,22 @@ class View
                 <ul class="navbar-nav ml-auto">
                   
                   
-                  <li class="nav-item">
-                    <a class="nav-link" href="?showContactForm">Contact</a>
+                  <li class="nav-item">                     
+                    <a class="nav-link" href="?showAllProducts">Products</a>
+                  </li>
+                      
+                  <a class="nav-link" href="?showContactForm">Contact</a>
                   </li>
                   <li>
-        
-                    <a class="nav-link" href="?showAllProducts">Products</a>
+                  
+                  </li>
+                  <a class="nav-link" href="Admin">Admin</a>
                   </li>
                       
                     </div>
                   </li>
                  
-                  
-                </ul>
+                  </ul>
               </div>
             </div>
           </nav>
@@ -125,7 +128,7 @@ class View
             </div> <!-- row -->
             <footer class="text-center text-muted">
             <hr>
-            <p>Copyright &copy; $date</p>
+            <p>Copyright &copy; $date. My Little Webshop</p>
             </footer>
             </body>
             </html>
